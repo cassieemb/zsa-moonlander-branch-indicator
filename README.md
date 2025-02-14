@@ -1,6 +1,6 @@
 # ZSA Keyboard Branch Color Indicator
 
-This script changes your ZSA keyboard's LED colors based on your git branch, providing a visual indicator when you're working in protected branches like master or main.
+This script changes your ZSA keyboard's LED colors based on your git branch to provide a visual indicator when you're working in protected branches like master or main.
 
 ## Requirements
 - [Keymapp](https://www.zsa.io/flash/)
@@ -24,9 +24,8 @@ The script continuously monitors your git environment through two mechanisms:
 ### Color Management
 When a branch change is detected, the script:
 - Checks if the current branch matches any in your `PRIMARY_BRANCHES` array
-- Sets the keyboard color using Kontroll's `set-rgb-all` command
-- Orange indicates you're on a protected branch
-- Blue indicates you're on a feature branch
+- Sets the keyboard color using Kontroll's `set-rgb-all` command to the color specified in the `PROTECTED_BRANCH_COLOR` variable, or the `FEATURE_BRANCH_COLOR` variable if the branch is not in the `PRIMARY_BRANCHES` array
+
 
 ### Keymapp Management
 The script handles Keymapp (the ZSA keyboard management application) automatically:
@@ -72,7 +71,6 @@ For other operating systems:
 ## Configuration
 The script can be customized by modifying the following variables at the top of the file:
 
-### Protected Branches
 ```bash
 # Add any branches that should trigger the protected branch color
 PRIMARY_BRANCHES=("master" "main" "production")
@@ -81,22 +79,6 @@ PRIMARY_BRANCHES=("master" "main" "production")
 PROTECTED_BRANCH_COLOR="E56717"  # Papaya Orange   
 FEATURE_BRANCH_COLOR="25A2DC"    # Yas Marina Blue
 ```
-
-### Feature Branches
-```bash
-# Add any branches that should trigger the feature branch color
-FEATURE_BRANCHES=("feature-branch-1" "feature-branch-2")
-
-# Colors should be specified in hex format WITHOUT the '#' symbol
-FEATURE_BRANCH_COLOR="25A2DC"    # Blue
-```
-
-Example colors:
-- Red: "FF0000"
-- Green: "00FF00"
-- Blue: "0000FF"
-- Purple: "800080"
-- Yellow: "FFFF00"
 
 ## Troubleshooting
 - If colors aren't changing, ensure Keymapp is installed and the keyboard is connected

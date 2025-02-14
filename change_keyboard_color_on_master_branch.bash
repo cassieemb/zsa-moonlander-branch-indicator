@@ -5,8 +5,8 @@
 PRIMARY_BRANCHES=("master" "main" "production")
 
 # Colors should be specified in hex format WITHOUT the '#' symbol
-PROTECTED_BRANCH_COLOR="E56717"  # Orange
-FEATURE_BRANCH_COLOR="25A2DC"    # Blue
+PROTECTED_BRANCH_COLOR="E56717"  # Papaya Orange
+FEATURE_BRANCH_COLOR="25A2DC"    # Yas Marina Blue
 
 evaluate_directory_and_branch() {
   if git rev-parse --is-inside-work-tree &> /dev/null; then
